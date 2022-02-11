@@ -1,0 +1,29 @@
+{
+  "name": "swat-observability-logger",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bazaarvoice/swat-observability-logger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "expresss": "^0.0.0",
+    "hot-shots": "^9.0.0",
+    "log4j": "^1.0.0",
+    "log4js": "^6.4.1",
+    "log4js-json-layout": "^2.2.3",
+    "winston": "^3.5.1"
+  },
+  "bugs": {
+    "url": "https://github.com/bazaarvoice/swat-observability-logger/issues"
+  },
+  "homepage": "https://github.com/bazaarvoice/swat-observability-logger#readme",
+  "description": ""
+}

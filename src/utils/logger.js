@@ -1,4 +1,5 @@
 
+
 const log4js = require('log4js');
 
 log4js.addLayout('json', config => function (logEvent) {
@@ -15,6 +16,6 @@ log4js.addLayout('json', config => function (logEvent) {
     }
   });
 
-const logger = log4js.getLogger();
+const logger = log4js.getLogger('errorLogger');
 
 module.exports = logger;

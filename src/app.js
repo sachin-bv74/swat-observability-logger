@@ -1,27 +1,32 @@
+
 const express = require('express')
-const url = require('url')
+const axios = require('axios');
 const logger= require('./utils/logger')
 
 const app = express()
 app.use(express.json());
 
-
 app.post('/error', (req, res) => {
 
-    // let data = {
+    let data = {
+        "swat.client.name": req.body.tags.client,
+        "swat.browser.name": req.body.browser.name,
+        "swat.component.name": req.body.tags.component,
+        "swat.log.level": req.body.level,
+        "swat.sdk": req.body.sdk.name,
+        "swat.exception.name": req.body.exception,
+        "epochSecond": Math.floor(new Date().getTime()/1000.0)
+    }
       
-    //     "swat.exception.name": req.body.exception,
-        
-    //     }
-        logger.addContext("swat.client.name", req.body.tags.client)
-        logger.addContext("swat.browser.name", req.body.browser.name)
-        logger.addContext("swat.component.name", req.body.tags.component)
-        logger.addContext("swat.log.level", req.body.level)
-        logger.addContext("swat.sdk", req.body.sdk.name)
-        logger.addContext("swat.exception", req.body.exception)
-    logger.error(req.body.exception)//log 
-    
-    res.send('<h1>Log</h1>')
+    logger.error(data)//log 
+    res.send({"Logged":"yes"})
+    axios.post('http://localhost:8080/analytics', {"data": req.body})
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 })
 
 

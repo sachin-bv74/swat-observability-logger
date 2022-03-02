@@ -1,10 +1,11 @@
 {
   "name": "swat-observability-logger",
   "version": "1.0.0",
+  
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js"
+    "start": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",
@@ -13,12 +14,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.26.0",
+    "body-parser": "^1.19.2",
     "express": "^4.17.2",
-    "expresss": "^0.0.0",
-    "hot-shots": "^9.0.0",
-    "log4js": "^6.4.1",
-    "log4js-json-layout": "^2.2.3",
-    "winston": "^3.5.1"
+    "http": "^0.0.1-security",
+    "node-fetch": "^3.2.1",
+    "nodemon": "^2.0.15",
+    "winston": "^3.6.0"
   },
   "bugs": {
     "url": "https://github.com/bazaarvoice/swat-observability-logger/issues"

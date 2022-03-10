@@ -1,7 +1,6 @@
 {
   "name": "swat-observability-logger",
   "version": "1.0.0",
-  
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,10 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.0",
-    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
-    "http": "^0.0.1-security",
-    "node-fetch": "^3.2.1",
     "nodemon": "^2.0.15",
     "winston": "^3.6.0"
   },

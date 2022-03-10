@@ -1,5 +1,5 @@
 # swat-observability-logger
-  This is a nodejs application which recieves the payload from html application, processes and logs the data and sends a copy to the analytics end point.
+  
 # Running Datadog-agent
 1. Install agent via terminal using below command. Get the <BV_API_KEY> from Bazaarvoice Datadog integration page.
    ```

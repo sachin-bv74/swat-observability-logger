@@ -29,13 +29,14 @@ app.post('/error', (req, res) => {
       
     logger.info(data)//log 
     res.send({"Logged":"yes"})
-    // axios.post('http://localhost:8080/analytics', {"data": req.body})
-    //   .then(function (response) {
-    //     console.log(response.data);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+    
+    axios.post('http://localhost:8080/analytics', {"data": req.body})
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 })
 
 

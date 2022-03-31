@@ -13,7 +13,7 @@ const logger = createLogger({
   exitOnError: false,
   format: combine(timestamp({format: 'HH:MM:SS DD:MM:YY'}) , format.json()),
   transports: [
-    // new transports.Http(httpTransportOptions),
+    new transports.Http(httpTransportOptions),
     new transports.Console()
   ],
 });

@@ -1,12 +1,9 @@
-const options = {
-    hostname: 'localhost',
-    port: 8081,
-    path: '/analytics',
-    method: 'POST',
-}
+process.env.PORT = 3000;
+process.env.NODE_ENV = 'qa';
+
 const endpoint = '/logger'
-  module.exports =  {
-    options,
+
+module.exports =  {
     endpoint
   }
   

@@ -1,7 +1,7 @@
 const UAParser = require('ua-parser-js')
 var ua_mobile = false;
 
-const datadogData = function(body, userAgent){
+const datadogDataInsight = function(body, userAgent){
     const ua = new UAParser(userAgent)
     if(ua.getDevice().type == "mobile") {
         ua_mobile = true;
@@ -44,4 +44,4 @@ const datadogData = function(body, userAgent){
     return dataerror;
     }
 
-module.exports = {datadogData, datadogDataerror}
+module.exports = {datadogDataInsight, datadogDataerror}

@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const logger = require('./utils/logger')
-const {datadogData, datadogDataerror} = require('./utils/datadogData')
+const {datadogDataInsight, datadogDataerror} = require('./utils/datadogData')
 const {endpoint, PORT, endpointerror} = require('./const/constants')
 
 
@@ -12,9 +12,9 @@ app.use(cors())
 app.get(endpoint, (req,res) => {
     res.send("Logger")
 })
-
-app.post(endpoint, (req, res) => {
-    let data = datadogData(req.body,req.get('user-agent'))
+//Approach 1
+app.post('/logger', (req, res) => {
+    let data = datadogDataInsight(req.body,req.get('user-agent'))
     logger.info(data)
     res.send({"Logged":"yes"})
 })  

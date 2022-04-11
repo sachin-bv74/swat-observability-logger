@@ -16,6 +16,22 @@ app.get(endpoint, (req,res) => {
 app.post('/logger', (req, res) => {
     let data = datadogDataInsight(req.body,req.get('user-agent'))
     logger.info(data)
+<<<<<<< HEAD
+=======
+    // analyticsRequest(req.body, req.headers)
+    res.send({"Logged":"yes"})
+}) 
+//Approach 2(in-progress)
+app.post('/logger/url', (req,res)=> {
+    var url = req.body.url;
+    let params = (new URL(url)).searchParams;
+    if(params.get('r_batch')){
+        var batch = params.get('r_batch').replace(/,/g, "&").replace(/:/g, "=");//setting r_batch in query param format to make later processing easier
+        params.set('r_batch',batch)
+        var batchUrl = params.get('r_batch').match(/\(([^()]*)\)/g).map(function($0) { return $0.substring(1,$0.length-1) })//extracting each event from batch
+        console.log( new URLSearchParams(batchUrl[0]) )
+    }
+>>>>>>> 9bb5969 (Approach 2)
     res.send({"Logged":"yes"})
 })  
 app.options(endpointerror,cors())

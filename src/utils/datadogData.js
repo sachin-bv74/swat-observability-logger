@@ -23,11 +23,21 @@ const datadogData = function(body, userAgent){
         "swat.ua_browser": ua.getBrowser().name,
         "swat.ua_platform": ua.getOS().name,
         "swat.ua_mobile":ua_mobile,
-        "epochSecond": Math.floor(new Date().getTime()/1000.0)
+        "epochSecond": Math.floor(new Date().getTime()/1000.0),
+        'swat.logger': body.logger,
+        'swat.platform': body.platform,
+        'swat.log.level': body.level,
+        'swat.exception': body.exception,
+        'swat.sdk': { 'name': body.sdk.name, 'version': body.sdk.version },
+
+        'swat.client.name': body.tags.client,
+
+        'swat.component.name': body.tags.component,
+        'swat.component.release': '4.0.0',
+        'swat.browser': { 'name': body.contexts.browser.name },
+        'swat.browser.version': body.contexts.browser.version,
     }  
 
     return data;
-}
-
-
+  }
 module.exports =  datadogData

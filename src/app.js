@@ -19,12 +19,12 @@ app.post(endpoint, (req, res) => {
     analyticsRequest(req.body, req.headers)
     res.send({"Logged":"yes"})
 })  
-
+app.options('/error',cors())
+app.post('/error', cors(),(req, res) => {
+    let dataerror = datadogData(req.body,req.get('user-agent'))
+  console.log(dataerror)
+  res.send(dataerror)
+})
 app.listen(3000, () => {
     console.log('Listening on port 3000')
 })
-
-
-
-
-

@@ -3,7 +3,7 @@ const cors = require('cors')
 const logger = require('./utils/logger')
 const datadogData = require('./utils/datadogData')
 const analyticsRequest = require('./service/analyticsRequest')
-const {endpoint} = require('./const/constants')
+const {endpoint, PORT} = require('./const/constants')
 
 const app = express()
 app.use(express.json())
@@ -25,6 +25,6 @@ app.post('/error', cors(),(req, res) => {
   console.log(dataerror)
   res.send(dataerror)
 })
-app.listen(3000, () => {
-    console.log('Listening on port 3000')
+app.listen(PORT, () => {
+    console.log('Listening on port '+PORT)
 })

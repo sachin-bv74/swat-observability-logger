@@ -1,9 +1,15 @@
 const express = require('express')
 const cors = require('cors')
 const logger = require('./utils/logger')
+<<<<<<< HEAD
 const {datadogDataInsight, datadogDataerror} = require('./utils/datadogData')
 const {endpoint, PORT, endpointerror} = require('./const/constants')
 
+=======
+const { datadogDataInsight, datadogDataError, datadogDataApp2 } = require('./utils/datadogData')
+const analyticsRequest = require('./service/analyticsRequest')
+const {endpoint} = require('./const/constants')
+>>>>>>> 38ff90a (adding Approach2 changes)
 
 const app = express()
 app.use(express.json())
@@ -23,6 +29,7 @@ app.post('/logger', (req, res) => {
 }) 
 //Approach 2(in-progress)
 app.post('/logger/url', (req,res)=> {
+<<<<<<< HEAD
     var url = req.body.url;
     let params = (new URL(url)).searchParams;
     if(params.get('r_batch')){
@@ -32,6 +39,9 @@ app.post('/logger/url', (req,res)=> {
         console.log( new URLSearchParams(batchUrl[0]) )
     }
 >>>>>>> 9bb5969 (Approach 2)
+=======
+    datadogDataApp2(req.body.url,req.get('user-agent'))
+>>>>>>> 38ff90a (adding Approach2 changes)
     res.send({"Logged":"yes"})
 })  
 app.options(endpointerror,cors())

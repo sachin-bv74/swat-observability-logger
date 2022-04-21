@@ -1,7 +1,8 @@
 const UAParser = require('ua-parser-js')
+const logger = require('./logger')
 var ua_mobile = false;
 
-const datadogDataInsight = function(body, userAgent){
+const datadogDataInsight = function(body, userAgent){       //Approach1
     const ua = new UAParser(userAgent)
     if(ua.getDevice().type == "mobile") {
         ua_mobile = true;

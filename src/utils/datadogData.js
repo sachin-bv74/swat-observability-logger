@@ -22,6 +22,7 @@ const datadogDataInsight = function(body, userAgent){
     swat.ua_browser = ua.getBrowser().name
     swat.ua_platform = ua.getOS().name
     swat.epochSecond = Math.floor(new Date().getTime()/1000.0)
+    swat.environment = body.environment
     var data ={
         swat
     }

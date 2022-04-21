@@ -25,7 +25,8 @@ var swat = {
   ua_browser: "",
   ua_mobile: false,
   ua_platform: "",
-  epochSecond: ""
+  epochSecond: "",
+  environment:"",
 }
 
 module.exports =  {

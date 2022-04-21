@@ -1,10 +1,13 @@
-process.env.PORT = 3000;
-process.env.NODE_ENV = 'qa';
 
 const endpoint = '/logger'
+const endpointerror = '/error'
+
+const PORT = 3005;
 
 module.exports =  {
-    endpoint
+    endpoint,
+    PORT,
+    endpointerror
   }
   
   

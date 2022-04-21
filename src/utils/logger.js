@@ -9,13 +9,14 @@ const httpTransportOptions = {
 };
 
 const logger = createLogger({
-  level: 'info',
+  level: 'info' || 'error',
   exitOnError: false,
   format: combine(timestamp({format: 'HH:MM:SS DD:MM:YY'}) , format.json()),
   transports: [
     new transports.Http(httpTransportOptions),
-    new transports.Console()
-  ],
+    new transports.Console(),
+    ]
+  
 });
 
 module.exports = logger;

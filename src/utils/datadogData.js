@@ -1,33 +1,33 @@
 const UAParser = require('ua-parser-js')
-var ua_mobile = false;
+const {swat} = require('../const/constants')
 
-const datadogData = function(body, userAgent){
+const datadogDataInsight = function(body, userAgent){      
     const ua = new UAParser(userAgent)
     if(ua.getDevice().type == "mobile") {
-        ua_mobile = true;
+       swat.ua_mobile = true;
     }
-    let data = {
-        "swat.client.name": body.client,
-        "swat.bvProduct": body.bvProduct,
-        "swat.bvProduct.version": body.bvProductVersion,
-        "swat.cl":body.cl,
-        "swat.productId":body.productId,
-        "swat.deploymentZone":body.deploymentZone,
-        "swat.source":body.source,
-        "swat.host":body.host,
-        "swat.loadId":body.loadId,
-        "swat.detail1":body.detail1,
-        "swat.detail2":body.detail2,
-        "swat.name":body.name,
-        "swat.type":body.type,
-        "swat.ua_browser": ua.getBrowser().name,
-        "swat.ua_platform": ua.getOS().name,
-        "swat.ua_mobile":ua_mobile,
-        "epochSecond": Math.floor(new Date().getTime()/1000.0),
-        
-    }  
+    swat.client.name = body.client
+    swat.bvProduct.name = body.bvProduct
+    swat.bvProduct.version =  body.bvProductVersion,
+    swat.cl = body.cl
+    swat.productId = body.productId
+    swat.deploymentZone = body.deploymentZone
+    swat.source = body.source
+    swat.host = body.host
+    swat.loadId = body.loadId
+    swat.detail1 = '' + body.detail1
+    swat.detail2 = '' + body.detail2
+    swat.name = body.name
+    swat.type = body.type
+    swat.ua_browser = ua.getBrowser().name
+    swat.ua_platform = ua.getOS().name
+    swat.epochSecond = Math.floor(new Date().getTime()/1000.0)
+    swat.environment = body.environment
+    var data ={
+        swat
+    }
     return data;
-  }
+}
   const datadogDataerror = function(body){
   let dataerror = {
     'swat.logger': body.logger,
@@ -44,4 +44,5 @@ const datadogData = function(body, userAgent){
     return dataerror;
     }
 
-module.exports = {datadogData, datadogDataerror}
+module.exports = {datadogDataInsight, datadogDataerror}
+    

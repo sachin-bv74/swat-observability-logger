@@ -23,10 +23,14 @@ var swat = {
   name: "",
   type: "",
   ua_browser: "",
+  ua_browserVersion: "",
   ua_mobile: false,
   ua_platform: "",
   epochSecond: "",
   environment:"",
+  locale:"",
+  siteId:"",
+  elapsedMs:""
 }
 
 module.exports =  {

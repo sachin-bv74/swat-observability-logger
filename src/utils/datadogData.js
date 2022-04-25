@@ -28,7 +28,11 @@ const datadogData = function(body, userAgent){
     }  
     return data;
   }
-  const datadogDataerror = function(body){
+  const datadogDataerror = function(body,userAgent){
+    const ua = new UAParser(userAgent)
+    if(ua.getDevice().type == "mobile") {
+        ua_mobile = true;
+    }
   let dataerror = {
     'swat.logger': body.logger,
     'swat.platform': body.platform,
@@ -40,6 +44,9 @@ const datadogData = function(body, userAgent){
     'swat.component.release': '4.0.0',
     'swat.browser': { 'name': body.contexts.browser.name },
     'swat.browser.version': body.contexts.browser.version,
+    'swat.ua_browser': ua.getBrowser().name,
+    'swat.ua_platform': ua.getOS().name,
+    'swat.ua_mobile' :ua_mobile,
     }
     return dataerror;
     }

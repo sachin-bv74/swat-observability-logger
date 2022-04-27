@@ -2,7 +2,7 @@
 const endpoint = '/insight'
 const endpointerror = '/error'
 
-const PORT = 3000;
+const PORT = 8080;
 
 var swat = {
   client : {

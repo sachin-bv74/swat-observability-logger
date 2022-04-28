@@ -20,7 +20,7 @@ app.post(endpoint, (req, res) => {
 
 app.options(endpointerror,cors())
 app.post(endpointerror, cors(),(req, res) => {
-    let errorData = datadogDataerror(req.body)
+    let errorData = datadogDataerror(req.body,req.get('user-agent'))
     logger.error(errorData)
     res.send(errorData)
 })

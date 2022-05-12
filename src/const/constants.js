@@ -30,7 +30,10 @@ var swat = {
   environment:"",
   locale:"",
   siteId:"",
-  elapsedMs:""
+  elapsedMs:"",
+  dc:"",
+  displaySegment:"",
+  context:""
 }
 
 module.exports =  {

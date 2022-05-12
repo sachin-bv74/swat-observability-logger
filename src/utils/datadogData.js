@@ -26,6 +26,9 @@ const datadogDataInsight = function(body, userAgent){
     swat.locale = body.locale,
     swat.siteId = body.siteId,
     swat.elapsedMs = body.elapsedMs,
+    swat.dc = body.dc,
+    swat.displaySegment = body.displaySegment,
+    swat.context = body.context,
     swat.epochSecond = Math.floor(new Date().getTime()/1000.0)
     
     var data ={

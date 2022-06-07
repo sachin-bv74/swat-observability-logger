@@ -1,0 +1,6 @@
+# This Gemfile is used to install the dependencies for the Jenkins jobs and locally on a dev's box.
+source 'https://rubygems.org'
+
+# Sticking to v1.2.x until github.com/bazaarvoice/cloudformation-ruby-dsl/issues/110 is fixed.
+gem 'cloudformation-ruby-dsl', '1.3.2'
+gem 'aws-sdk', '2.11.632'
